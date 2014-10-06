@@ -1,9 +1,24 @@
 		Python Training
 	   	  Cheatsheet
 
+Trouver l'identifiant d'une variable:
+
+id(l)
 
 Trouver les éléments d'une classe :
 dir(Class)
 
 xrange n'existe pas en P3. range() retourne un itérateur
 list(range(3))
+
+Long variables :
+
+var = ('slidfjvklnfoirjlkn'
+'soeiurdlxkflnvoxidhjr eo')
+print var
+'islidfjvklnfoirjlknsoeiurdlxkflnvoxidhjr eo'
+Equivalent à l'utilisation du "\" à la fin de ligne
+
+Datatypes:
+Tuple : (,)
+List : [,]
