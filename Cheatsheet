@@ -1,0 +1,6 @@
+		Python Training
+	   	  Cheatsheet
+
+
+Trouver les éléments d'une classe :
+dir(Class)
