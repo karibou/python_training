@@ -4,3 +4,6 @@
 
 Trouver les éléments d'une classe :
 dir(Class)
+
+xrange n'existe pas en P3. range() retourne un itérateur
+list(range(3))
