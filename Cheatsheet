@@ -1,5 +1,9 @@
 		Python Training
 	   	  Cheatsheet
+Reference à la documentation des modules hors interpreteur :
+
+$ pydoc {module}
+
 Les allocations se font TOUJOURS par référence :
 
 list1 = [1,2,3]
