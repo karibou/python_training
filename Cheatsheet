@@ -58,3 +58,12 @@ def add(*args):	#nombre d'arguments variable
 
 def add(**kwargs): #nombre d'arguments variable
  = a dict contenant les arguments nommés
+
+Programmation Objet:
+
+Pour que la méthode super() fonctionne, il faut que la
+classe soit définie en tant qu'object:
+
+ex:
+class MyClass(object):
+    A=1
