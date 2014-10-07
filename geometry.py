@@ -45,14 +45,14 @@ class Carre(Figure):
         return 4*self.distance
 
 class Triangle(Figure):
-    def __init__(self, p1):
+    def __init__(self, p1, p2, p3):
         super(Triangle, self).__init__([p1, p2, p3])
 
     def position(self):
         return self.points
 
     def perimetre(self):
-        return self.p1.distance(self.points[2]) + self.p1.distance(self.points[3]) + self.p2.distance(self.points[3])
+        return self.points[0].distance(self.points[2]) + self.points[1].distance(self.points[2]) + self.points[0].distance(self.points[1])
 
 if __name__ == '__main__':
     p1 = Point(1,1)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     assert ca.perimetre() == 4*5, 'carre perimetre pas bon'
     assert ca.position() == p1, 'carre position pas bon'
 
-    t = Triangle([p1, p2, p3])
+    t = Triangle(p1, p2, p3)
 #    assert t.position() == [p1, p2, p3], 'triangle position pas bon'
     assert t.perimetre() == (p1.distance(p2) + p1.distance(p3) + p2.distance(p3)), 'triangle perimetre pas bon'
 
