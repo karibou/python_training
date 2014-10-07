@@ -1,7 +1,30 @@
 		Python Training
 	   	  Cheatsheet
+Les allocations se font TOUJOURS par référence :
 
+list1 = [1,2,3]
+list2 = list1
+list2[0] = 4
+list1 = [4,2,3]
+
+sauf si on demande de copier les éléments spécifiquement avec l'opérateur tranche (:) :
+
+list2 = list1[:]
+list1[0] = 1
+list2 = [4,2,3]
 Trouver l'identifiant d'une variable:
+
+Concaténation de liste :
+
+list1 = [1, 2, 3]
+list2 = list1
+list1 = list1 + [4, 5, 6]
+list2 sera [1, 2, 3]
+
+list1 = [1, 2, 3]
+list2 = list1
+list1 += [4, 5, 6]
+list2 sera [1, 2, 3, 4, 5, 6]
 
 id(l)
 
@@ -23,3 +46,11 @@ Datatypes:
 Tuple : (,)
 List : [,]
 Dictionaire : {,}
+
+Nombre d'arguments variables :
+
+def add(*args):	#nombre d'arguments variable
+ a = tuple contenant les valeurs arguments
+
+def add(**kwargs): #nombre d'arguments variable
+ = a dict contenant les arguments nommés
