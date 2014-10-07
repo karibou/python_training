@@ -87,16 +87,45 @@ class Invoice(object):
 class InvoiceItem(object):
     """A line of invoice. This is a base class.
     The derived classes should implement the methods of this interface."""
-    pass
+
+    def __init__(self, quantity, one_price=2, the_total_price=1, the_description='Une description'):
+        self.quantity = quantity
+        self.one_price = one_price
+        self.one_unit = quantity
+        self.the_total_price = the_total_price
+        self.the_description = the_description
+
+    def get_quantity(self):
+        return self.quantity
+
+    def unit_price(self):
+        return self.one_price
+
+    def unit(self):
+        return self.one_unit
+
+    def total_price(self):
+        self.the_total_price = self.one_unit * self.one_price
+        return self.the_total_price
+
+    def description(self):
+	return self.the_description
+
+    @staticmethod
+    def get_date():
+        t = time.time()
+        return t
 
 
 class Nails(InvoiceItem):
     """Implementation of InvoiceItem for a bag of nails"""
-    pass
+    def __init__(self, quantity):
+        super(Nails,self).__init__(quantity, one_price=5, the_total_price=1, the_description='Des clous')
 
 class Planks(InvoiceItem):
     """Implementation of InvoiceItem for a wooden plank"""
-    pass
+    def __init__(self, quantity):
+        super(Planks,self).__init__(quantity, one_price=10, the_total_price=1, the_description='Des Planches')
 
 def main():
     """The main function: create an invoice, and print it."""
