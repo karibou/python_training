@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 def input_integer(msg):
     res = raw_input(msg)
     print 'res', res
