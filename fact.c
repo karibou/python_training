@@ -1,6 +1,6 @@
 #include "stdio.h"
 
-int fact(int value) {
+unsigned long fact(unsigned long value) {
 
     if ( value == 1 ) {
         return 1;
@@ -10,7 +10,8 @@ int fact(int value) {
 }
 
 
-main(int argc, char *argv) {
+main(int argc, char *argv[]) {
 
-    printf("Factorielle % d\n",fact(5));
+    unsigned long value = atoi(argv[1]);
+    printf("Factorielle %li\n",fact(value));
     }
