@@ -1,38 +1,47 @@
+#-*-coding: utf-8-*-
+'''test'''
 from optparse import OptionParser
 import os
 import sys
 import re
 
-def search(directory,regexp):
+
+def search(directory, regexp):
     res = []
-    expr = compile(regexp)
-    for rep, dirnam, files in os.walk(directory):
+    if CASEFLAG:
+        expr = re.compile(regexp)
+    else:
+        expr = re.compile(regexp, re.I)
+
+    for rep, _, files in os.walk(directory):
         if not files:
             continue
         for onefile in files:
-            if onefile == regexp:
-                res.append(onefile)
+            ret = re.search(expr, onefile)
+            if ret:
+                res.append("{}{}{}".format(rep, os.sep, onefile))
     return res
 
-if __name__ == '__main__':
-    parser = OptionParser()
+
+def main():
+    global CASEFLAG
+    parser = OptionParser(
+        usage="{}: NOMDUREPERTOIRE 'regexp'".format(sys.argv[0]),
+                            description=u"Une fonction similaire à find")
     parser.add_option("-i",
         "--case-sensitive",
         action="store_true",
-        dest="case",
+        dest="CASEFLAG",
         default=False,
         help="Use case sensitive search")
 
-    while True:
-        try:
-            (options, args) = parser.parse_args()
-            break
-        except ValueError:
-            print "nombre d'arguments invalide"
-            continue
-    
-    
-    null, directory, regexp = sys.argv
-    print "directory", directory, "regexp", regexp
-
+    (options, _) = parser.parse_args()
+    directory = sys.argv[1]
+    regexp = sys.argv[2]
+    if options.CASEFLAG:
+        CASEFLAG = True
     print 'resultat', search(directory, regexp)
+
+if __name__ == '__main__':
+    CASEFLAG = False
+    main()
