@@ -23,9 +23,9 @@ def fetch_data(fullurl):
         print "Erreur"
 
 def parse_result(html_data,regexp):
-    line = re.search(regexp,html_data)
-    if line:
-        print line.string
+    m = re.search(r'{}\s*=\s*([0-9.]+)'.format(regexp), html_data)
+    index = html_data.find(regexp)
+    print '{} : '.format(regexp), m.groups()
 
 if __name__ == '__main__':
 
