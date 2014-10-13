@@ -1,0 +1,2 @@
+recursive-include paquet *.py
+include toto.py
